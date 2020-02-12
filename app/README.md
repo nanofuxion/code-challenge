@@ -1,4 +1,4 @@
-# Code Challenge
+# Code Challenge - App
 With your api wired, create 2 pages in ionic/angular (preferably the latest and greatest):
 
 * Allow the user to authenticate

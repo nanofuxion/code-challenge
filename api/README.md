@@ -1,4 +1,4 @@
-# Code Challenge
+# Code Challenge - API
 Wire up the api to save users, encrypt the password, and decrypt the password to authenticate the user. If you have time, you are provided mocha and chai to create unit tests, unit tests are not required, but will help you.
 
 Technology:
