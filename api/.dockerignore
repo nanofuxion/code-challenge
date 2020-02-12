@@ -1,0 +1,15 @@
+build
+data
+node_modules
+test
+.DS_Store
+.env*
+.git
+.gitattributes
+.gitignore
+.gitlab-ci.yml
+.nycrc.json
+CHANGELOG.md
+docker-compose.yml
+Dockerfile
+README.md
