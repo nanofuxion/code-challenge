@@ -1,5 +1,10 @@
 version: '3'
 services:
+  # attempting to run mongo from dock ((failed to access from js))
+    db:
+      image: mongo
+      expose:
+        - "27017"
     app:
       build: .
       environment:
@@ -9,4 +14,6 @@ services:
         TZ: ${TZ}
       ports:
         - 3000:3000
+      # expose:
+      #   - "27017-27019"
       restart: unless-stopped
