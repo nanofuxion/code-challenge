@@ -20,7 +20,7 @@ export const UserMoSchema = new mongoose.Schema({
         allowNull: false,
         defaultValue: () => uuid(),
         primaryKey: true,
-        type: typeof(uuid()),
+        type: typeof(uuid()), //set type to type of uuid to stop catastrophic errer cause by type mismatch.
     },
     lastName: {
         allowNull: false,
