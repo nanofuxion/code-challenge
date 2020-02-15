@@ -22,6 +22,7 @@ import { IJWTConfig } from '../lib/JWT';
 import { UserModel } from '../models/users';
 import { IResolvers } from '../resolvers';
 import { Routes } from '../routes';
+// import * as userController from "../controllers/userController";
 
 export interface IApp {
     app: express.Express;
@@ -81,6 +82,10 @@ export const App = (configs: IAppConfig, resolvers: IResolvers): IApp => {
      * Create routes
      */
     Routes(app, configs, resolvers);
+
+    
+    // commented for now
+    // app.get("/login", userController.getUser);
     
     /**
      * Expose application to port

@@ -29,6 +29,7 @@ export const UserSchema: any = {
         type: 'STRING',
     },
 };
+
 export class UserModel {
     public readonly createdAt!: Date;
     public email!: string;
