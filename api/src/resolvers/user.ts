@@ -2,11 +2,15 @@ import { Resolver } from '../lib/Resolver';
 import { IModels } from '../models';
 import { UserModel } from '../models/users';
 
+import * as mongoose from "mongoose"
+import { userLogin } from '../controllers/userController';
+
 export class User extends Resolver<IModels> {
     /**
      * Get user by username
      */
     public async getByUsername(username: string): Promise<UserModel | null> {
+        
         return null;
     }
     
@@ -15,17 +19,10 @@ export class User extends Resolver<IModels> {
      */
     public async isAuthorized(id: string, verbose: boolean = true): Promise<UserModel> {
         const defaultMessage = 'Your username/password combination is incorrect';
+        
         // TODO: Find user by id
-        const user: UserModel = {
-            createdAt: new Date(),
-            email: '',
-            enabled: false,
-            firstName: '',
-            id: '',
-            lastName: '',
-            password: '',
-            updatedAt: new Date(),
-        };
+        let user: UserModel = userLogin(id); 
+
         if (!user) {
             return Promise.reject<any>({
                 message: verbose ? 'There was no user record found' : defaultMessage,

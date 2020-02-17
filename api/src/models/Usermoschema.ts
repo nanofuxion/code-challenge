@@ -1,11 +1,34 @@
 import * as mongoose from "mongoose";
 import * as uuid from 'uuid/v4';
 
+//creates template
+export interface  IUser extends mongoose.Document{
+    createdAt: Date;
+    email: string;
+    enabled: boolean;
+    firstName: string;
+    id: string;
+    lastName: string;
+    password: string;
+    updatedAt: Date;
+}
+
 export const UserMoSchema = new mongoose.Schema({
+    createdAt: {
+        allowNull: false,
+        type:Date,
+    },
+    id: {
+    allowNull: false,
+    defaultValue: () => uuid(),
+    primaryKey: true,
+    type: typeof(uuid()), //set type to type of uuid to stop catastrophic errer cause by type mismatch.
+    unique: true,
+    },
     email: {
         allowNull: false,
         type:String,
-        unique: true,
+        // unique: true,
     },
     enabled: {
         allowNull: false,
@@ -16,12 +39,6 @@ export const UserMoSchema = new mongoose.Schema({
         allowNull: false,
         type:String,
     },
-    id: {
-        allowNull: false,
-        defaultValue: () => uuid(),
-        primaryKey: true,
-        type: typeof(uuid()), //set type to type of uuid to stop catastrophic errer cause by type mismatch.
-    },
     lastName: {
         allowNull: false,
         type:String,
@@ -29,7 +46,11 @@ export const UserMoSchema = new mongoose.Schema({
     password: {
         type:String,
     },
+    updatedAt: {
+        allowNull: false,
+        type:Date,
+    },
 });
 
-const User = mongoose.model('User', UserMoSchema);
-export default User;
+const UserAdd = mongoose.model<IUser>('User', UserMoSchema);
+export default UserAdd;

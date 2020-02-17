@@ -5,6 +5,8 @@ services:
       image: mongo
       expose:
         - "27017"
+      ports:
+        - 27017:27017      
     app:
       build: .
       environment:
@@ -14,6 +16,4 @@ services:
         TZ: ${TZ}
       ports:
         - 3000:3000
-      # expose:
-      #   - "27017-27019"
       restart: unless-stopped

@@ -1,8 +1,8 @@
 import { UserModel, UserSchema } from './users';
 // import * as MongoClient from "mongodb";
 import * as mongoose from "mongoose";
-import User from "./Usermoschema"
-import * as uuid from 'uuid/v4';
+import UserAdd from "./Usermoschema"
+
 
 export interface IModels {
     user: UserModel;
@@ -12,9 +12,6 @@ export const Models = async (dbUrl: string): Promise<IModels> => {
         // TODO: Connect to chosen database, and pass model objects
         
         //connect
-        //verifying env value is passing to code  
-        console.log(`the db url is ${dbUrl}`);
-
         //mongodb future proofing for module refactor 
         mongoose.set('useNewUrlParser', true);
         mongoose.set('useUnifiedTopology', true);
@@ -25,27 +22,26 @@ export const Models = async (dbUrl: string): Promise<IModels> => {
             else console.log("If this loaded, successfully mongoDB from docker, Woooow.");
         });
 
+        let user = UserAdd.find(
+            (err: any, docs: any) => {
+                if (err) console.log(err);
+                else {
+                    console.log("these are the current docs in mongo ⬇️ below");
+                    console.log(docs);
+                }
+                return docs;
+            }
+        );
 
+        
 
         const models = {
             user: new UserModel(
+                
             ),
         };
 
-        let user = new User({
-            email: models.user.email,
-            enabled: models.user.enabled,
-            firstName: models.user.firstName,
-            id: models.user.id,
-            lastName: models.user.lastName,
-            password: models.user.password
-        });
-        user.save(
-            (err: any)=>{
-        if(err) console.log(err);
-        else console.log(JSON.stringify(user));
-        }
-        );
+        // models.user.email = user.
 
         return models;
     } catch (err) {

@@ -85,7 +85,7 @@ export const App = (configs: IAppConfig, resolvers: IResolvers): IApp => {
 
     
     // commented for now
-    // app.get("/login", userController.getUser);
+    // app.get("", userController.getUser);
     
     /**
      * Expose application to port
