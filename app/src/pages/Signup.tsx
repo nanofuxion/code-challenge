@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonIcon, IonItem, IonLabel, IonGrid, IonCol, IonRow, IonList, IonInput, IonText, IonTextarea, } from '@ionic/react';
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonIcon, IonItem, IonLabel, IonGrid, IonCol, IonRow, IonList, IonInput, IonText, } from '@ionic/react';
 import GoSignUpBtn from '../components/GoSignUpBtn';
 import './Signup.css';
 
