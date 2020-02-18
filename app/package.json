@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "@capacitor/core": "1.5.0",
+    "@capacitor/android": "^1.5.0",
+    "@capacitor/core": "^1.5.0",
     "@ionic/core": "^5.0.0",
     "@ionic/react": "^5.0.0",
     "@ionic/react-router": "^5.0.0",
@@ -28,7 +29,16 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:styles": "postcss src/tailwind.css -o src/theme/tailwind.css",
+    "prebuild": "yarn build:styles",
+    "prestart": "yarn build:styles",
+    "build:android": "npx cap add android",
+    "build:desktop": "npx cap add electron",
+    "build:ios": "npx cap add ios",
+    "open:android": "npx cap open android",
+    "open:desktop": "npx cap open electron",
+    "open:ios": "npx cap open ios"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,7 +56,10 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "1.5.0"
+    "@capacitor/cli": "^1.5.0",
+    "autoprefixer": "^9.7.4",
+    "postcss-cli": "^7.1.0",
+    "tailwindcss": "^1.2.0"
   },
   "description": "An Ionic project"
 }

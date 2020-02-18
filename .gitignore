@@ -21,3 +21,8 @@ docs
 data
 !.nycrc.json
 .env
+# added the following to prevent uploading build projects to git
+.gadle
+android
+ios
+electron
